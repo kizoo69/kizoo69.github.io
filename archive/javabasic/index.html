@@ -1,0 +1,364 @@
+<!doctype html><html lang=ko><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="index, follow"><link rel="icon shortcut" href=/favicon.ico sizes=32x32><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=icon href=/favicon-dark.svg type=image/svg+xml media="(prefers-color-scheme: dark)"><link rel=icon href=/favicon-16x16.png type=image/png sizes=16x16><link rel=icon href=/favicon-32x32.png type=image/png sizes=32x32><link rel=apple-touch-icon href=/apple-touch-icon.png sizes=180x180><link fetchpriority=low href=/site.webmanifest rel=manifest><title>Java Basic – Kizoo</title>
+<meta name=description content="스스로 기초를 다지는 데 도움이 되는 공부 거리를 목차로 정리합니다. 큰 목차는 MIT 6.005의 2: Basic Java와 거의 같습니다. Language Basic flowchart TB classDef site stroke: none, fill: none ; classDef section fill: none ;"><link rel=canonical href=https://kizoo.gitlab.io/archive/javabasic/ itemprop=url><meta property="og:title" content="Java Basic"><meta property="og:description" content="Kizoo's Archive"><meta property="og:type" content="website"><meta property="og:url" content="https://kizoo.gitlab.io/archive/javabasic/"><meta itemprop=name content="Java Basic"><meta itemprop=description content="스스로 기초를 다지는 데 도움이 되는 공부 거리를 목차로 정리합니다. 큰 목차는 MIT 6.005의 2: Basic Java와 거의 같습니다. Language Basic flowchart TB classDef site stroke: none, fill: none ; classDef section fill: none ;"><meta itemprop=dateModified content="2025-02-18T21:38:27+09:00"><meta itemprop=wordCount content="1518"><meta name=twitter:card content="summary"><meta name=twitter:title content="Java Basic"><meta name=twitter:description content="스스로 기초를 다지는 데 도움이 되는 공부 거리를 목차로 정리합니다. 큰 목차는 MIT 6.005의 2: Basic Java와 거의 같습니다. Language Basic flowchart TB classDef site stroke: none, fill: none ; classDef section fill: none ;"><link rel=preload href=/css/compiled/main.min.23a12191daf50c320fcb5ce50e8c895a47f37ce361f66be7c771e19f254b32b2.css as=style integrity="sha256-I6Ehkdr1DDIPy1zlDoyJWkfzfONh9mvnx3HhnyVLMrI="><link href=/css/compiled/main.min.23a12191daf50c320fcb5ce50e8c895a47f37ce361f66be7c771e19f254b32b2.css rel=stylesheet integrity="sha256-I6Ehkdr1DDIPy1zlDoyJWkfzfONh9mvnx3HhnyVLMrI="><link href=/css/custom.min.b89481fddb02943261aff3303bed7b9f19c840ba157ad2d229ad64ae0b16f151.css rel=stylesheet integrity="sha256-uJSB/dsClDJhr/MwO+17nxnIQLoVetLSKa1krgsW8VE="><script>const defaultTheme="light",setDarkTheme=()=>{document.documentElement.classList.add("dark"),document.documentElement.style.colorScheme="dark"},setLightTheme=()=>{document.documentElement.classList.remove("dark"),document.documentElement.style.colorScheme="light"};"color-theme"in localStorage?localStorage.getItem("color-theme")==="dark"?setDarkTheme():setLightTheme():(defaultTheme==="dark"?setDarkTheme():setLightTheme(),defaultTheme==="system"&&(window.matchMedia("(prefers-color-scheme: dark)").matches?setDarkTheme():setLightTheme()))</script></head><body dir=ltr><div class="nav-container hx-sticky hx-top-0 hx-z-20 hx-w-full hx-bg-transparent print:hx-hidden"><div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div><nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]"><a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href=/><span class="hx-mx-2 hx-font-extrabold hx-inline hx-select-none" title=Kizoo>Kizoo</span>
+</a><a title=창고 href=/archive class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-font-medium"><span class=hx-text-center>창고</span>
+</a><a title=일지 href=/log class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"><span class=hx-text-center>일지</span>
+</a><button type=button aria-label=Menu class="hamburger-menu -hx-mr-2 hx-rounded hx-p-2 active:hx-bg-gray-400/20 md:hx-hidden"><svg height="24" fill="none" viewBox="0 0 24 24" stroke="currentcolor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"/></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"/></g></svg></button></nav></div><div class='hx-mx-auto hx-flex hx-max-w-[90rem]'><div class="mobile-menu-overlay [transition:background-color_1.5s_ease] hx-fixed hx-inset-0 hx-z-10 hx-bg-black/80 dark:hx-bg-black/60 hx-hidden"></div><aside class="sidebar-container hx-flex hx-flex-col print:hx-hidden md:hx-top-16 md:hx-shrink-0 md:hx-w-64 md:hx-self-start max-md:[transform:translate3d(0,-100%,0)] md:hx-sticky"><div class="hx-px-4 hx-pt-4 md:hx-hidden"><div class="search-wrapper hx-relative md:hx-w-64"><div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300"><input placeholder=검색... class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current" type=search spellcheck=false>
+<kbd class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex">CTRL K</kbd></div><div><ul class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]" style="transition:max-height .2s ease 0s"></ul></div></div></div><div class="hextra-scrollbar hx-overflow-y-auto hx-overflow-x-hidden hx-p-4 hx-grow md:hx-h-[calc(100vh-var(--navbar-height)-var(--menu-height))]"><ul class="hx-flex hx-flex-col hx-gap-1 md:hx-hidden"><li><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50" href=/log/>일지
+<span class=hextra-sidebar-collapsible-button><svg fill="none" viewBox="0 0 24 24" stroke="currentcolor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"/></svg></span></a><div class="ltr:hx-pr-0 hx-overflow-hidden"><ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col"><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50" href=/log/20250220/>Java Basic</a></li></ul></div></li><li class=open><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50" href=/archive/>창고
+<span class=hextra-sidebar-collapsible-button><svg fill="none" viewBox="0 0 24 24" stroke="currentcolor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"/></svg></span></a><div class="ltr:hx-pr-0 hx-overflow-hidden"><ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col"><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50" href=/archive/tip/>TIP</a></li><li class="hx-flex hx-flex-col open"><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500" href=/archive/javabasic/>Java Basic</a><ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li><a href=#language-basic class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Language Basic</a></li><li><a href=#numbers--strings class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Numbers &amp;amp; Strings</a></li><li><a href=#classes--objects class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Classes &amp;amp; Objects</a></li><li><a href=#essential-java-classes class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Essential Java Classes</a></li><li><a href=#collections class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Collections</a></li><li><a href=#concurrency--networking class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50">Concurrency &amp;amp; Networking</a></li></ul></li></ul></div></li></ul><ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden"><li><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50" href=/archive/tip/>TIP</a></li><li class=open><a class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500" href=/archive/javabasic/>Java Basic</a></li></ul></div></aside><nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents"><div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">목차</p><ul><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#language-basic>Language Basic</a></li><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#numbers--strings>Numbers & Strings</a></li><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#classes--objects>Classes & Objects</a></li><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#essential-java-classes>Essential Java Classes</a></li><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#collections>Collections</a></li><li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6"><a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href=#concurrency--networking>Concurrency & Networking</a></li></ul><div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400"><button aria-hidden=true id=backToTop onclick=scrollUp() class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
+<span>맨위로</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg></button></div></div></nav><article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]"><main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12"><div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current"><div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100"><a href=/archive/>창고</a></div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Java Basic</div></div><div class=content><h1>Java Basic</h1><p>스스로 기초를 다지는 데 도움이 되는 공부 거리를 목차로 정리합니다.
+큰 목차는 <a href=https://ocw.mit.edu/ans7870/6/6.005/s16/classes/02-basic-java/ target=_blank rel=noopener>MIT 6.005의 2: Basic Java</a>와 거의 같습니다.</p><h2>Language Basic<span class="hx-absolute -hx-mt-20" id=language-basic></span>
+<a href=#language-basic class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    classDef site stroke: none, fill: none ;
+    classDef section fill: none ;
+
+    basic_syntax@{ shape: text, label: "문법을 익히는 데 도움이 됩니다" }
+    -.- |baeldung| gswj(Get Started with Java)
+    --- gswj_basic(Java Language Basics)
+    --- gswj_arrays(Java Arrays)
+    basic_syntax -.- |oracle| oracle_basic(Language Basic)
+
+    click oracle_basic "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html"
+    click gswj "https://www.baeldung.com/get-started-with-java-series"
+
+    class gswj site;
+    class oracle_basic site;
+
+    basic_programming@{ shape: text, label: "문법과 프로그래밍 기초를 더불어 익히는 데 도움이 됩니다" }
+    -.- |MIT OCW| mit_ocw_6092(6.092: Introduction to Programming in Java)
+    basic_programming -.- |David J. Eck| javanotes(Introduction to Programming Using Java)
+    basic_programming -.- |Robert Sedgewick & Kevin Wayne| introcs_java(Introduction to Programming in Java)
+
+    mit_ocw_6092
+    --> mit_ocw_6092_lecture1(Lecture 1 - Types, Variables, Operators)
+    --> mit_ocw_6092_lecture2(Lecture 2 - More Types, Methods, Conditionals)
+    --> mit_ocw_6092_lecture3(Lecture 3 - Loops, Arrays)
+
+    javanotes
+    --> javanotes_chapter1(Chapter 1: Overview: The Mental Landscape)
+    --> javanotes_chapter2(Chapter 2: Programming in the Small I: Names and Things)
+    --> javanotes_chapter3(Chapter 3: Programming in the Small II: Control)
+    --> javanotes_chapter4(Chapter 4: Programming in the Large I: Subroutines)
+    --> javanotes_chapter7(Chapter 7: Arrays, ArrayLists, and Records)
+    --> javanotes_chapter7_section1([Section 1:
+            Array Details])
+    --> javanotes_chapter7_section2([Section 2:
+            Array Processing])
+
+    introcs_java
+    --> introcs_java_chapter1(Chapter 1: Elements of Programming)
+    --> introcs_java_chapter2(Chapter 2: Functions)
+
+    click mit_ocw_6092 "https://ocw.mit.edu/courses/6-092-introduction-to-programming-in-java-january-iap-2010/pages/lecture-notes/"
+    click javanotes "https://math.hws.edu/javanotes/"
+    click introcs_java "https://introcs.cs.princeton.edu/java/home/"
+
+    class mit_ocw_6092 site
+    class javanotes site
+    class introcs_java site
+
+    class javanotes_chapter7_section1 section
+    class javanotes_chapter7_section2 section</pre><h2>Numbers & Strings<span class="hx-absolute -hx-mt-20" id=numbers--strings></span>
+<a href=#numbers--strings class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    cs@{ shape: diam, label: "0.3 == 0.1 + 0.1 + 0.1" }
+    cs --> |false| start
+    cs --> |true| introcs_sc(9\. Scientific Computing,
+               Robert Sedgewick & Kevin Wayne)
+    --> introcs_sc_float([9.1 Floating Point])
+    --> cs
+
+    start@{ shape: sm-circ , label: "" } -.- |oracle| oracle_data(Numbers & Strings)
+    subgraph baeldung [ ]
+        direction TB
+        baeldung_wrapper_classes([Wrapper Classes in Java])
+        --> baeldung_number_class(Guide to the Number Class in Java)
+        gswj(Get Started with Java) --> gswj_strings(Java Strings)
+        end
+    start -.- |baeldung| baeldung
+    style baeldung stroke-width: 0.1px, fill :none;
+
+    oracle_data &  baeldung 
+    -.- prerequisite(Classes & Objects, Essential Java Classes)
+    -.- |baeldung| gswj_overflow_underflow([Overflow and Underflow in Java])
+    --> gswj_comparing_doubles([Comparing Doubles in Java])
+
+    click oracle_data "https://docs.oracle.com/javase/tutorial/java/data/index.html"
+    click introcs_sc_float "https://introcs.cs.princeton.edu/java/91float/"
+    click baeldung_wrapper_classes "https://www.baeldung.com/java-wrapper-classes"
+    click baeldung_number_class "https://www.baeldung.com/java-number-class"
+    click gswj "https://www.baeldung.com/get-started-with-java-series"
+    click gswj_comparing_doubles "https://www.baeldung.com/java-comparing-doubles"
+    click gswj_overflow_underflow "https://www.baeldung.com/java-overflow-underflow"
+
+    classDef site stroke: none, fill: none;
+    classDef section fill: none ;
+    classDef group stroke: none, fill: none;
+
+    class gswj site
+    class prerequisite site
+
+    class introcs_sc_float section
+    class baeldung_wrapper_classes section
+    class baeldung_number_class section
+    class gswj_comparing_doubles section
+    class gswj_overflow_underflow section</pre><h2>Classes & Objects<span class="hx-absolute -hx-mt-20" id=classes--objects></span>
+<a href=#classes--objects class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    classDef site stroke: none, fill: none;
+    classDef group stroke: none, fill: none;
+    classDef section fill: none ;
+
+    subgraph programming [ ]
+        direction TB
+
+        basic_programming@{ shape: text, label: "문법과 프로그래밍 기초를 더불어 익히는 데 도움이 됩니다" }
+        -.- |MIT OCW| mit_ocw_6092(6.092: Introduction to Programming in Java)
+        basic_programming -.- |David J. Eck| javanotes(Introduction to Programming Using Java)
+        basic_programming -.- |Robert Sedgewick & Kevin Wayne| introcs_java(Introduction to Programming in Java)
+
+        mit_ocw_6092 --> mit_ocw_6092_lecture4(Lecture 4 - Classes and Objects)
+        javanotes --> javanotes_chapter5(Chapter 5: Programming in the Large II: Objects and Classes)
+        introcs_java --> introcs_chapter3(Chapter 3: Object-Oriented Programming)
+
+        click mit_ocw_6092 "https://ocw.mit.edu/courses/6-092-introduction-to-programming-in-java-january-iap-2010/pages/lecture-notes/"
+        click javanotes "https://math.hws.edu/javanotes/"
+        click introcs_java "https://introcs.cs.princeton.edu/java/home/"
+
+        class mit_ocw_6092 site
+        class javanotes site
+        class introcs_java site
+    end
+
+    subgraph syntax [ ]
+        direction TB
+        basic_syntax@{ shape: text, label: "문법을 익히는 데 도움이 됩니다" }
+        -.- |baeldung| gswj(Get Started with Java)
+        --> gswj_oo(Java OOP)
+        basic_syntax -.- |oracle| oracle_oo(Classes & Objects)
+        --> oracle_ii(Interface & Inheritance)
+
+        click oracle_basic "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html"
+        click gswj "https://www.baeldung.com/get-started-with-java-series"
+        click oracle_oo "https://docs.oracle.com/javase/tutorial/java/javaOO/index.html"
+        click oracle_ii "https://docs.oracle.com/javase/tutorial/java/IandI/index.html"
+
+        class gswj site;
+    end
+
+    subgraph supplements [ ]
+        direction LR
+        mit_ocw_6005_s16([6.005: Software Construction
+            Readings])
+        --> mit_ocw_6005_s16_equality([15: Equality])
+        -.- | baeldung | baeldung
+        subgraph baeldung [ ]
+        baeldung_equals(["Difference Between == and equals() in Java"])
+        --> baeldung_contracts(["Java equals() and hashCode() Contracts"])
+        --> baeldung_hashcode(["Guide to hashCode() in Java"])
+        --> baeldung_comparable(["Comparing Objects in Java"])
+        end
+        style baeldung stroke-width: 0.1px, fill :none;
+
+        click mit_ocw_6005_s16 "https://ocw.mit.edu/ans7870/6/6.005/s16/"
+        click baeldung_equals "https://www.baeldung.com/java-equals-method-operator-difference"
+        click baeldung_contracts "https://www.baeldung.com/java-equals-hashcode-contracts"
+        click baeldung_hashcode "https://www.baeldung.com/java-hashcode"
+        click baeldung_comparable "https://www.baeldung.com/java-comparing-objects"
+
+        class mit_ocw_6005_s16 site
+
+        class mit_ocw_6005_s16_equality section
+        class baeldung_equals section
+        class baeldung_contracts section
+        class baeldung_hashcode section
+        class baeldung_comparable section
+    end
+
+    syntax & programming -.- |MIT OCW| mit_ocw_6005_s16
+
+    class syntax group
+    class programming group
+    class supplements group</pre><h2>Essential Java Classes<span class="hx-absolute -hx-mt-20" id=essential-java-classes></span>
+<a href=#essential-java-classes class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    classDef site stroke: none, fill: none;
+    classDef group stroke: none, fill: none;
+    classDef section fill: none ;
+
+    subgraph programming [ ]
+        direction TB
+        basic_programming@{ shape: text, label: "사용법과 프로그래밍 기초를 더불어 익히는 데 도움이 됩니다" }
+        -.- |David J. Eck| javanotes(Introduction to Programming Using Java)
+        --> |Chapter 8: Correctness, Robustness, Efficiency| javanotes_chapter8_section1([
+            Section 1: Introduction to Correctness and Robustness])
+        --> javanotes_chapter8_section2([Section 2: Writing Correct Programs])
+        --> javanotes_chapter8_section3([Section 3: Exceptions and try..catch])
+        --> |Chapter 11: Input/Output Streams, Files, and Networking| javanotes_chapter11_section1([
+            Section 1: I/O Streams, Readers, and Writers])
+        --> javanotes_chapter11_section2([Section 2: Files])
+        --> javanotes_chapter11_section3([Section 3: Programming With Files])
+
+        click javanotes "https://math.hws.edu/javanotes/"
+
+        class javanotes site
+        class javanotes_chapter8_section1 section
+        class javanotes_chapter8_section2 section
+        class javanotes_chapter8_section3 section
+        class javanotes_chapter11_section1 section
+        class javanotes_chapter11_section2 section
+        class javanotes_chapter11_section3 section
+    end
+
+    subgraph syntax [ ]
+        direction TB
+        basic_syntax@{ shape: text, label: "사용법을 익히는 데 도움이 됩니다" }
+        basic_syntax -.- |baeldung| gswj(Getting Started with Java)
+        --> gswj_exception(Java Exceptions)
+        --> io(Java I/O)
+        --> gswj_regular_expressions([A Guide To Java Regular Expressions API])
+
+        basic_syntax -.- |oracle| oracle_essential(Essential Java Classes)
+        --> oracle_exceptions(Exceptions)
+        --> oracle_io(Basic I/O)
+        --> oracle_regular_expressions(Regular Expressions)
+
+        click gswj "https://www.baeldung.com/get-started-with-java-series"
+        click gswj_regular_expressions "https://www.baeldung.com/regular-expressions-java"
+        click oracle_essential "https://docs.oracle.com/javase/tutorial/essential/index.html"
+
+        class gswj site
+        class gswj_regular_expressions section
+        class oracle group
+        class oracle_essential site
+    end
+
+    class syntax group
+    class programming group</pre><h2>Collections<span class="hx-absolute -hx-mt-20" id=collections></span>
+<a href=#collections class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    classDef site stroke: none, fill: none;
+    classDef group stroke: none, fill: none;
+    classDef section fill: none ;
+
+    subgraph generics [ ]
+        direction LR
+
+        generics_begins@{ shape: text, label: "Generics (parametric polymorphism) 곧, type을 parameter로 받아
+            type-safety와 reusability가 더 뛰어난 code를 짜는데 도움이 됩니다." }
+        -.- |baeldung| baeldung_generics([The Basics of Java Generics])
+        --> baeldung_generics_vs_extends_object(["Java Generics:
+             &lt; ? &gt; vs.
+             &lt; ? extends Object &gt;"])
+
+        generics_begins -.- |oracle| oracle_generics(Generics)
+    end
+    style generics stroke-width: 0.1px, fill: none;
+
+    click baeldung_generics "https://www.baeldung.com/java-generics"
+    click baeldung_generics_vs_extends_object "https://www.baeldung.com/java-generics-vs-extends-object"
+    click oracle_generics "https://docs.oracle.com/javase/tutorial/java/generics/index.html"
+
+    class baeldung_generics section
+    class baeldung_generics_vs_extends_object section
+
+    subgraph programming [ ]
+        direction TB
+        basic_programming@{ shape: text, label: "사용법과 프로그래밍 기초를 더불어 익히는 데 도움이 됩니다" }
+        -.- |David J. Eck| javanotes(Introduction to Programming Using Java)
+        --> |Chapter 7: Arrays, ArrayLists, and Records| javanotes_chapter7_section3([
+            Section 3: ArrayList])
+        --> javanotes_10(Chapter 10: Generic Programming and Collection Classes)
+
+        click javanotes "https://math.hws.edu/javanotes/"
+
+        class javanotes site
+        class javanotes_chapter7_section3 section
+    end
+
+    subgraph syntax [ ]
+        direction TB
+
+        basic_syntax@{ shape: text, label: "사용법을 익히는 데 도움이 됩니다" }
+        -.- |oracle| oracle_collections(Collections)
+
+        basic_syntax
+        -.- |baeldung| gswj(Get Started with Java)
+        --> gswj_collections(Java Collections)
+
+        click oracle_collections "https://docs.oracle.com/javase/tutorial/collections/index.html"
+        click gswj "https://www.baeldung.com/get-started-with-java-series"
+
+        class gswj site
+    end
+
+    generics ---> syntax
+    generics ---> programming
+
+    class programming group
+    class syntax group</pre><h2>Concurrency & Networking<span class="hx-absolute -hx-mt-20" id=concurrency--networking></span>
+<a href=#concurrency--networking class=subheading-anchor aria-label="Permalink for this section"></a></h2><pre class="mermaid hx-mt-6">flowchart TB
+    classDef site stroke: none, fill: none;
+    classDef group stroke: none, fill: none;
+    classDef section fill: none;
+
+    subgraph programming [ ]
+        direction TB
+        basic_programming@{ shape: text, label: "사용법과 프로그래밍 기초를 더불어 익히는 데 도움이 됩니다" }
+        -.- |MIT OCW| mit_ocw_6005_s16_readings(6.005: Software Construction
+                        Readings)
+        --> mit_ocw_6005_s16_reading19(19: Concurrency)
+        --> mit_ocs_6005_s16_reading20(20: Thread Safety)
+        --> mit_ocs_6005_s16_reading21(21: Sockets & Networking)
+        --> mit_ocs_6005_s16_reading22(22: Queues & Message-Passing)
+        --> mit_ocs_6005_s16_reading23(23: Locks & Synchronization)
+
+        basic_programming
+        -.- |David J. Eck| javanotes(Introduction to Programming Using Java)
+        --> |Chapter 11: Input/Output Streams, Files, and Networking| javanotes_chapter11_section4([
+            Section 4: Networking])
+        --> javanotes_chapter12(Chapter 12: Threads and Multiprocessing)
+
+        click javanotes "https://math.hws.edu/javanotes/"
+        click mit_ocw_6005_s16_readings "https://ocw.mit.edu/ans7870/6/6.005/s16/"
+
+        class mit_ocw_6005_s16_reading19_22 chapter
+        class mit_ocw_6005_s16_readings site
+        class javanotes site
+        class javanotes_chapter11_section4 section
+   end
+
+   subgraph syntax [ ]
+        direction TB
+
+        basic_syntax@{ shape: text, label: "사용법을 익히는 데 도움이 됩니다" }
+        -.- |baeldung| baeldung_concurrency(Java Concurrency Series)
+        --> baeldung_concurrency_basics(Java Concurrency Basics)
+        --> baeldung_sockets([A Guide to Java Sockets])
+        --> baeldung_inputstream_server_socket([Read an InputStream using the Java Server Socket])
+        baeldung_sockets --> baeldung_socket_connection_read_timeout([Connection Timeout vs. Read Timeout for Java Sockets])
+
+        click baeldung_concurrency "https://www.baeldung.com/java-concurrency"
+        click baeldung_url "https://www.baeldung.com/java-url"
+        click baeldung_url_vs_uri "https://www.baeldung.com/java-url-vs-uri"
+        click baeldung_sockets "https://www.baeldung.com/a-guide-to-java-sockets"
+        click baeldung_inputstream_server_socket "https://www.baeldung.com/java-inputstream-server-socket"
+        click baeldung_socket_connection_read_timeout "https://www.baeldung.com/java-socket-connection-read-timeout"
+        click baeldung_udp "https://www.baeldung.com/udp-in-java"
+
+        class baeldung_concurrency site
+
+        class baeldung_concurrency_basics chapter
+        class baeldung_url section
+        class baeldung_url_vs_uri section
+        class baeldung_sockets section
+        class baeldung_inputstream_server_socket section
+        class baeldung_socket_connection_read_timeout section
+        class baeldung_udp section
+   end
+
+   class programming group
+   class syntax group</pre></div><div class="hx-mt-12 hx-mb-8 hx-block hx-text-xs hx-text-gray-500 ltr:hx-text-right rtl:hx-text-left dark:hx-text-gray-400">마지막으로 고친 날 <time datetime=2025-02-18T21:38:27.000Z>2025년 2월 18일</time></div></main></article></div><script defer src=/js/main.min.d1048f02f76d9018acd295a4df4c057510adf57b63a51446829eb33941ddbed6.js integrity="sha256-0QSPAvdtkBis0pWk30wFdRCt9XtjpRRGgp6zOUHdvtY="></script><script defer src=/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script><script defer src=/ko.search.min.85f04c3727829a4e415c7d4fdd52927930ec93f1f6dd659aa23b1565287f50a0.js integrity="sha256-hfBMNyeCmk5BXH1P3VKSeTDsk/H23WWaojsVZSh/UKA="></script><script defer src=/lib/mermaid/mermaid.min.1bca2e3c09f0e33ccc6e701e9c79d5cfa87d5e929b35d3a4aea4e1ec069dc87b.js integrity="sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="></script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.documentElement.classList.contains("dark")?"dark":"neutral";mermaid.initialize({startOnLoad:!0,theme:e,themeVariables:{primaryColor:"#fff",fontFamily:" 'Hubot Sans', 'SUIT Variable' "}})})</script></body></html>
